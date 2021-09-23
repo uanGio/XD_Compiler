@@ -10,9 +10,9 @@ public class Constantes extends Dic {
     private static Constantes nodo;
 
     public static Constantes getNodo() {
-        if (nodo == null) nodo = new Constantes();
+        if (nodo == null)
+            nodo = new Constantes();
         return nodo;
-
     }
 
     private final String[] regex;
@@ -23,13 +23,11 @@ public class Constantes extends Dic {
     private Constantes() {
         regex = getConstantes();
         p = new Pattern[regex.length];
-        init();
+        init(p, regex);
     }
 
-    private void init() {
-        for (int i = 0; i < regex.length; i++) {
-            p[i] = Pattern.compile(regex[i]);
-        }
+    public boolean isThis(String txt) {
+        return isThis(p, txt);
     }
 
     @Override

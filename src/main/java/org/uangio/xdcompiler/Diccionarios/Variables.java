@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class Variables {
+public class Variables extends Dic {
 
     private static Variables nodo;
 
@@ -16,20 +16,20 @@ public class Variables {
         return nodo;
     }
 
-    private final String[] regex = {""};
-    private final Pattern[] p = new Pattern[regex.length];
+    private final String[] regex;
+    private final Pattern[] p;
     private Matcher m;
 
 
     private Variables() {
-        for (int i = 0; i < regex.length; i++) {
-            p[i] = Pattern.compile(regex[i]);
-        }
+        this.regex = getVariables();
+        p = new Pattern[regex.length];
+        init(p, regex);
     }
 
-    public boolean instancia1(String txt) {
-        this.m = p[0].matcher(txt);
-        return m.find();
+
+    public boolean isThis(String txt) {
+        return isThis(p, txt);
     }
 
     @Override
