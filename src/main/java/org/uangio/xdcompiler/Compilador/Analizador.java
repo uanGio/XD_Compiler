@@ -17,7 +17,6 @@ class Analizador extends Objeto implements Obj {
 
     @Override
     public boolean Evaluacion() {
-
         return true;
     }
 
@@ -33,7 +32,7 @@ class Analizador extends Objeto implements Obj {
             }
         }
         if (getAperturas() != getCierres()) {
-            return false
+            return false;
         }
         return true;
     }
