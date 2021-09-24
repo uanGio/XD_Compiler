@@ -1,11 +1,12 @@
 package org.uangio.xdcompiler.Compilador;
 
+//Controlador de los métodos del compilador
 interface Obj {
 
-    public boolean evaluacion();
+    public boolean evaluador();
 
-    public boolean Accionador();
+    public boolean accionador();
 
-    public void Resultados();
+    public void compilador();
 
 }

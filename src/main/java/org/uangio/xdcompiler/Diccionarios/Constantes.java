@@ -12,26 +12,38 @@ public class Constantes extends Dic {
     public static Constantes getNodo() {
         if (nodo == null) nodo = new Constantes();
         return nodo;
-
     }
 
     private final String[] regex;
     private final Pattern[] p;
     private Matcher m;
 
-
     private Constantes() {
         regex = getConstantes();
         p = new Pattern[regex.length];
         init();
     }
-
     private void init() {
-        for (int i = 0; i < regex.length; i++) {
-            p[i] = Pattern.compile(regex[i]);
+        /*   p[i] = Pattern.compile(regex[i]);
+        }*/
+        Pattern pattern = Pattern.compile(regex[0]);
+        m = pattern.matcher("VAR = \"hola123\"");
+    }
+    public void find(int id){
+        m.find(id);
+        System.out.println(m.group(1));
+    }
+    public boolean struct_const(String type, String line){
+        Pattern p = null;
+        switch (type){
+            case "int":
+                return p.matches(get_constante_regexp_with_id(1), line);
+            case "str":
+                return p.matches(get_constante_regexp_with_id(0), "GIO=\"hola\"");
+            default:
+                return false;
         }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,7 +51,6 @@ public class Constantes extends Dic {
         Constantes that = (Constantes) o;
         return Arrays.equals(regex, that.regex) && Arrays.equals(p, that.p) && m.equals(that.m);
     }
-
     @Override
     public int hashCode() {
         int result = Objects.hash(m);
