@@ -46,7 +46,7 @@ class Analizador extends Objeto implements Obj {
     public void Resultados() {
         this.Accionador = Accionador();
         if (Evaluacion && Accionador) {
-            this.Salida = Entrada;
+
         }
     }
 

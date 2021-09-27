@@ -62,7 +62,7 @@ abstract class Objeto {
 
             return type2(txt);
         }
-        return "Integer";
+        return "int";
     }
 
     private String type2(String txt) {
@@ -71,19 +71,19 @@ abstract class Objeto {
         } catch (NumberFormatException e) {
             return type3(txt);
         }
-        return "Float";
+        return "float";
     }
 
     private String type3(String txt) {
         switch (txt) {
             case "True":
-                return "Bool";
+                return "bool";
             case "False":
-                return "Bool";
+                return "bool";
             case "true":
-                return "Bool";
+                return "bool";
             case "false":
-                return "Bool";
+                return "bool";
         }
         return type4(txt);
     }
@@ -99,6 +99,6 @@ abstract class Objeto {
         if (txt.isEmpty()) {
             return "null";
         }
-        return "String";
+        return "string";
     }
 }
